@@ -19,6 +19,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const indexRoute = require('./routes/index');
+const createPostRoute = require('./routes/createPost');
 
 app.use(function (req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -33,7 +34,10 @@ app.use(function (req, res, next) {
 	next();
 });
 
+// Get all posts
 app.use('/', indexRoute);
+//Submit new post
+app.use('/create', createPostRoute);
 
 app.listen(port, () => {
 	console.log(`App Listening on localhost ${port}`);
