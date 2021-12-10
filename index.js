@@ -19,6 +19,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const indexRoute = require('./routes/index');
+const postRoute = require('./routes/post');
 const createPostRoute = require('./routes/createPost');
 
 app.use(function (req, res, next) {
@@ -36,8 +37,10 @@ app.use(function (req, res, next) {
 
 // Get all posts
 app.use('/', indexRoute);
-//Submit new post
+// Submit new post
 app.use('/create', createPostRoute);
+// Get single post
+app.use('/user', postRoute);
 
 app.listen(port, () => {
 	console.log(`App Listening on localhost ${port}`);
