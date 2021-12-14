@@ -41,7 +41,7 @@ app.use('/', indexRoute);
 // Submit new post
 app.use('/create', createPostRoute);
 // Get single post
-app.use('/view', postRoute);
+app.use('/user', postRoute);
 // Get User Profile Route
 app.use('/profile', userProfileRoute);
 
