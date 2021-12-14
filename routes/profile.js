@@ -7,27 +7,27 @@ const db = firestore.getFirestore();
 
 // Get all articles from a single user firebase
 router.get('/:userId', (req, res) => {
-	const userId = req.params.userId;
+	const uid = req.params.userId;
 	//const userposts = firestore.getDoc(firestore.doc(db, 'users', userId));
 	//const users = firestore.getDocs(firestore.collection(db, 'users'));
 	const query = firestore.query(
 		firestore.collection(db, 'users'),
-		where('userId', '==', userId)
+		firestore.where('userId', '==', uid)
 	);
-
+	const queryPromise = firestore.getDocs(query);
 	const usersArray = [];
 
-	query.then(
-		function (querySnapshot) {
+	queryPromise
+		.then(function (querySnapshot) {
 			querySnapshot.forEach(function (doc) {
 				usersArray.push(doc.data());
 			});
 			return res.send(usersArray);
-		}.catch(function (error) {
+		})
+		.catch(function (error) {
 			console.log('Error:', error);
 			return res.send(error);
-		})
-	);
+		});
 
 	// query
 	// 	.then((response) => {

@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 const indexRoute = require('./routes/index');
 const postRoute = require('./routes/post');
 const createPostRoute = require('./routes/createPost');
-const userProfileRoute = require('./routes/user');
+const userProfileRoute = require('./routes/profile');
 
 app.use(function (req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
