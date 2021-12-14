@@ -8,14 +8,15 @@ const db = firestore.getFirestore();
 // API Endpoint for sumbitting data through form
 router.get('/', (req, res) => {
 	const queryParams = req.query; // Query params from URL
-	const { imageAlt, imageSrc, userMessage, userId, userName } = queryParams;
+	const { imageAlt, imageSrc, userMessage, userId, displayName } =
+		queryParams;
 	// collection name = users
 	const setUserPost = firestore.addDoc(firestore.collection(db, 'users'), {
 		imageAlt,
 		imageSrc,
 		userMessage,
 		userId,
-		userName,
+		displayName,
 	});
 
 	setUserPost

@@ -21,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 const indexRoute = require('./routes/index');
 const postRoute = require('./routes/post');
 const createPostRoute = require('./routes/createPost');
+const userProfileRoute = require('./routes/user');
 
 app.use(function (req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -40,7 +41,9 @@ app.use('/', indexRoute);
 // Submit new post
 app.use('/create', createPostRoute);
 // Get single post
-app.use('/user', postRoute);
+app.use('/view', postRoute);
+// Get User Profile Route
+app.use('/profile', userProfileRoute);
 
 app.listen(port, () => {
 	console.log(`App Listening on localhost ${port}`);
