@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 		.then((response) => {
 			res.send(response);
 		})
-		.catch((error) => {
+		.catch(function (error) {
 			console.warn(error);
 			res.send(error);
 		});
