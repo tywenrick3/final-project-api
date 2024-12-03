@@ -2,7 +2,7 @@
 
 ## Node + Express + Firestore
 
-## Working deployed API
+## Working deployed API (deprecated)
 https://whispering-reaches-52177.herokuapp.com/
 
 ## Routes:
